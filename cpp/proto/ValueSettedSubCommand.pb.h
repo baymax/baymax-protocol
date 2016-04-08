@@ -54,9 +54,10 @@ class ValueSettedSubCommand : public ::google::protobuf::Message {
   static const ValueSettedSubCommand& default_instance();
 
   enum ValuesCase {
-    kIValue = 2,
-    kFValue = 3,
-    kUiValue = 4,
+    kOtherValue = 2,
+    kCurrentValue = 3,
+    kVoltageValue = 4,
+    kTemperatureValue = 5,
     VALUES_NOT_SET = 0,
   };
 
@@ -107,39 +108,49 @@ class ValueSettedSubCommand : public ::google::protobuf::Message {
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
 
-  // optional int32 iValue = 2;
+  // optional uint32 otherValue = 2;
   private:
-  bool has_ivalue() const;
+  bool has_othervalue() const;
   public:
-  void clear_ivalue();
-  static const int kIValueFieldNumber = 2;
-  ::google::protobuf::int32 ivalue() const;
-  void set_ivalue(::google::protobuf::int32 value);
+  void clear_othervalue();
+  static const int kOtherValueFieldNumber = 2;
+  ::google::protobuf::uint32 othervalue() const;
+  void set_othervalue(::google::protobuf::uint32 value);
 
-  // optional float fValue = 3;
+  // optional uint32 currentValue = 3;
   private:
-  bool has_fvalue() const;
+  bool has_currentvalue() const;
   public:
-  void clear_fvalue();
-  static const int kFValueFieldNumber = 3;
-  float fvalue() const;
-  void set_fvalue(float value);
+  void clear_currentvalue();
+  static const int kCurrentValueFieldNumber = 3;
+  ::google::protobuf::uint32 currentvalue() const;
+  void set_currentvalue(::google::protobuf::uint32 value);
 
-  // optional uint32 uiValue = 4;
+  // optional uint32 voltageValue = 4;
   private:
-  bool has_uivalue() const;
+  bool has_voltagevalue() const;
   public:
-  void clear_uivalue();
-  static const int kUiValueFieldNumber = 4;
-  ::google::protobuf::uint32 uivalue() const;
-  void set_uivalue(::google::protobuf::uint32 value);
+  void clear_voltagevalue();
+  static const int kVoltageValueFieldNumber = 4;
+  ::google::protobuf::uint32 voltagevalue() const;
+  void set_voltagevalue(::google::protobuf::uint32 value);
+
+  // optional float temperatureValue = 5;
+  private:
+  bool has_temperaturevalue() const;
+  public:
+  void clear_temperaturevalue();
+  static const int kTemperatureValueFieldNumber = 5;
+  float temperaturevalue() const;
+  void set_temperaturevalue(float value);
 
   ValuesCase values_case() const;
   // @@protoc_insertion_point(class_scope:ValueSettedSubCommand)
  private:
-  inline void set_has_ivalue();
-  inline void set_has_fvalue();
-  inline void set_has_uivalue();
+  inline void set_has_othervalue();
+  inline void set_has_currentvalue();
+  inline void set_has_voltagevalue();
+  inline void set_has_temperaturevalue();
 
   inline bool has_values() const;
   void clear_values();
@@ -150,9 +161,10 @@ class ValueSettedSubCommand : public ::google::protobuf::Message {
   ::google::protobuf::uint32 id_;
   union ValuesUnion {
     ValuesUnion() {}
-    ::google::protobuf::int32 ivalue_;
-    float fvalue_;
-    ::google::protobuf::uint32 uivalue_;
+    ::google::protobuf::uint32 othervalue_;
+    ::google::protobuf::uint32 currentvalue_;
+    ::google::protobuf::uint32 voltagevalue_;
+    float temperaturevalue_;
   } values_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -186,91 +198,120 @@ inline void ValueSettedSubCommand::set_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:ValueSettedSubCommand.id)
 }
 
-// optional int32 iValue = 2;
-inline bool ValueSettedSubCommand::has_ivalue() const {
-  return values_case() == kIValue;
+// optional uint32 otherValue = 2;
+inline bool ValueSettedSubCommand::has_othervalue() const {
+  return values_case() == kOtherValue;
 }
-inline void ValueSettedSubCommand::set_has_ivalue() {
-  _oneof_case_[0] = kIValue;
+inline void ValueSettedSubCommand::set_has_othervalue() {
+  _oneof_case_[0] = kOtherValue;
 }
-inline void ValueSettedSubCommand::clear_ivalue() {
-  if (has_ivalue()) {
-    values_.ivalue_ = 0;
+inline void ValueSettedSubCommand::clear_othervalue() {
+  if (has_othervalue()) {
+    values_.othervalue_ = 0u;
     clear_has_values();
   }
 }
-inline ::google::protobuf::int32 ValueSettedSubCommand::ivalue() const {
-  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.iValue)
-  if (has_ivalue()) {
-    return values_.ivalue_;
-  }
-  return 0;
-}
-inline void ValueSettedSubCommand::set_ivalue(::google::protobuf::int32 value) {
-  if (!has_ivalue()) {
-    clear_values();
-    set_has_ivalue();
-  }
-  values_.ivalue_ = value;
-  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.iValue)
-}
-
-// optional float fValue = 3;
-inline bool ValueSettedSubCommand::has_fvalue() const {
-  return values_case() == kFValue;
-}
-inline void ValueSettedSubCommand::set_has_fvalue() {
-  _oneof_case_[0] = kFValue;
-}
-inline void ValueSettedSubCommand::clear_fvalue() {
-  if (has_fvalue()) {
-    values_.fvalue_ = 0;
-    clear_has_values();
-  }
-}
-inline float ValueSettedSubCommand::fvalue() const {
-  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.fValue)
-  if (has_fvalue()) {
-    return values_.fvalue_;
-  }
-  return 0;
-}
-inline void ValueSettedSubCommand::set_fvalue(float value) {
-  if (!has_fvalue()) {
-    clear_values();
-    set_has_fvalue();
-  }
-  values_.fvalue_ = value;
-  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.fValue)
-}
-
-// optional uint32 uiValue = 4;
-inline bool ValueSettedSubCommand::has_uivalue() const {
-  return values_case() == kUiValue;
-}
-inline void ValueSettedSubCommand::set_has_uivalue() {
-  _oneof_case_[0] = kUiValue;
-}
-inline void ValueSettedSubCommand::clear_uivalue() {
-  if (has_uivalue()) {
-    values_.uivalue_ = 0u;
-    clear_has_values();
-  }
-}
-inline ::google::protobuf::uint32 ValueSettedSubCommand::uivalue() const {
-  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.uiValue)
-  if (has_uivalue()) {
-    return values_.uivalue_;
+inline ::google::protobuf::uint32 ValueSettedSubCommand::othervalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.otherValue)
+  if (has_othervalue()) {
+    return values_.othervalue_;
   }
   return 0u;
 }
-inline void ValueSettedSubCommand::set_uivalue(::google::protobuf::uint32 value) {
-  if (!has_uivalue()) {
+inline void ValueSettedSubCommand::set_othervalue(::google::protobuf::uint32 value) {
+  if (!has_othervalue()) {
     clear_values();
-    set_has_uivalue();
+    set_has_othervalue();
   }
-  values_.uivalue_ = value;
-  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.uiValue)
+  values_.othervalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.otherValue)
+}
+
+// optional uint32 currentValue = 3;
+inline bool ValueSettedSubCommand::has_currentvalue() const {
+  return values_case() == kCurrentValue;
+}
+inline void ValueSettedSubCommand::set_has_currentvalue() {
+  _oneof_case_[0] = kCurrentValue;
+}
+inline void ValueSettedSubCommand::clear_currentvalue() {
+  if (has_currentvalue()) {
+    values_.currentvalue_ = 0u;
+    clear_has_values();
+  }
+}
+inline ::google::protobuf::uint32 ValueSettedSubCommand::currentvalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.currentValue)
+  if (has_currentvalue()) {
+    return values_.currentvalue_;
+  }
+  return 0u;
+}
+inline void ValueSettedSubCommand::set_currentvalue(::google::protobuf::uint32 value) {
+  if (!has_currentvalue()) {
+    clear_values();
+    set_has_currentvalue();
+  }
+  values_.currentvalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.currentValue)
+}
+
+// optional uint32 voltageValue = 4;
+inline bool ValueSettedSubCommand::has_voltagevalue() const {
+  return values_case() == kVoltageValue;
+}
+inline void ValueSettedSubCommand::set_has_voltagevalue() {
+  _oneof_case_[0] = kVoltageValue;
+}
+inline void ValueSettedSubCommand::clear_voltagevalue() {
+  if (has_voltagevalue()) {
+    values_.voltagevalue_ = 0u;
+    clear_has_values();
+  }
+}
+inline ::google::protobuf::uint32 ValueSettedSubCommand::voltagevalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.voltageValue)
+  if (has_voltagevalue()) {
+    return values_.voltagevalue_;
+  }
+  return 0u;
+}
+inline void ValueSettedSubCommand::set_voltagevalue(::google::protobuf::uint32 value) {
+  if (!has_voltagevalue()) {
+    clear_values();
+    set_has_voltagevalue();
+  }
+  values_.voltagevalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.voltageValue)
+}
+
+// optional float temperatureValue = 5;
+inline bool ValueSettedSubCommand::has_temperaturevalue() const {
+  return values_case() == kTemperatureValue;
+}
+inline void ValueSettedSubCommand::set_has_temperaturevalue() {
+  _oneof_case_[0] = kTemperatureValue;
+}
+inline void ValueSettedSubCommand::clear_temperaturevalue() {
+  if (has_temperaturevalue()) {
+    values_.temperaturevalue_ = 0;
+    clear_has_values();
+  }
+}
+inline float ValueSettedSubCommand::temperaturevalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.temperatureValue)
+  if (has_temperaturevalue()) {
+    return values_.temperaturevalue_;
+  }
+  return 0;
+}
+inline void ValueSettedSubCommand::set_temperaturevalue(float value) {
+  if (!has_temperaturevalue()) {
+    clear_values();
+    set_has_temperaturevalue();
+  }
+  values_.temperaturevalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.temperatureValue)
 }
 
 inline bool ValueSettedSubCommand::has_values() const {

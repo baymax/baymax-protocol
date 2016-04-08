@@ -28,17 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef GPB_ENUM(SetValueSubCommand_FieldNumber) {
   SetValueSubCommand_FieldNumber_Id_p = 1,
-  SetValueSubCommand_FieldNumber_IValue = 2,
-  SetValueSubCommand_FieldNumber_FValue = 3,
-  SetValueSubCommand_FieldNumber_UiValue = 4,
-  SetValueSubCommand_FieldNumber_UserId = 5,
+  SetValueSubCommand_FieldNumber_OtherValue = 2,
+  SetValueSubCommand_FieldNumber_UserId = 3,
 };
 
 typedef GPB_ENUM(SetValueSubCommand_Values_OneOfCase) {
   SetValueSubCommand_Values_OneOfCase_GPBUnsetOneOfCase = 0,
-  SetValueSubCommand_Values_OneOfCase_IValue = 2,
-  SetValueSubCommand_Values_OneOfCase_FValue = 3,
-  SetValueSubCommand_Values_OneOfCase_UiValue = 4,
+  SetValueSubCommand_Values_OneOfCase_OtherValue = 2,
 };
 
 @interface SetValueSubCommand : GPBMessage
@@ -47,11 +43,7 @@ typedef GPB_ENUM(SetValueSubCommand_Values_OneOfCase) {
 
 @property(nonatomic, readonly) SetValueSubCommand_Values_OneOfCase valuesOneOfCase;
 
-@property(nonatomic, readwrite) int32_t iValue;
-
-@property(nonatomic, readwrite) float fValue;
-
-@property(nonatomic, readwrite) uint32_t uiValue;
+@property(nonatomic, readwrite) uint32_t otherValue;
 
 @property(nonatomic, readwrite) uint32_t userId;
 

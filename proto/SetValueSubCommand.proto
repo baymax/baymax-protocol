@@ -4,9 +4,7 @@ syntax = "proto3";
 message SetValueSubCommand {
 	uint32 id = 1;
 	oneof values {
-		int32 iValue = 2;
-		float fValue = 3;
-		uint32 uiValue = 4;
+		uint32 otherValue = 2;
 	}
-	uint32 userId = 5;
+	uint32 userId = 3;
 }

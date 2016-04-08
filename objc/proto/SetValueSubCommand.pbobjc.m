@@ -31,17 +31,13 @@ static GPBFileDescriptor *SetValueSubCommandRoot_FileDescriptor(void) {
 
 @dynamic valuesOneOfCase;
 @dynamic id_p;
-@dynamic iValue;
-@dynamic fValue;
-@dynamic uiValue;
+@dynamic otherValue;
 @dynamic userId;
 
 typedef struct SetValueSubCommand__storage_ {
   uint32_t _has_storage_[2];
   uint32_t id_p;
-  int32_t iValue;
-  float fValue;
-  uint32_t uiValue;
+  uint32_t otherValue;
   uint32_t userId;
 } SetValueSubCommand__storage_;
 
@@ -69,34 +65,12 @@ typedef struct SetValueSubCommand__storage_ {
         .fieldOptions = NULL,
       },
       {
-        .name = "iValue",
-        .number = SetValueSubCommand_FieldNumber_IValue,
-        .hasIndex = -1,
-        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
-        .dataType = GPBDataTypeInt32,
-        .offset = offsetof(SetValueSubCommand__storage_, iValue),
-        .defaultValue.valueInt32 = 0,
-        .dataTypeSpecific.className = NULL,
-        .fieldOptions = NULL,
-      },
-      {
-        .name = "fValue",
-        .number = SetValueSubCommand_FieldNumber_FValue,
-        .hasIndex = -1,
-        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
-        .dataType = GPBDataTypeFloat,
-        .offset = offsetof(SetValueSubCommand__storage_, fValue),
-        .defaultValue.valueFloat = 0,
-        .dataTypeSpecific.className = NULL,
-        .fieldOptions = NULL,
-      },
-      {
-        .name = "uiValue",
-        .number = SetValueSubCommand_FieldNumber_UiValue,
+        .name = "otherValue",
+        .number = SetValueSubCommand_FieldNumber_OtherValue,
         .hasIndex = -1,
         .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
         .dataType = GPBDataTypeUInt32,
-        .offset = offsetof(SetValueSubCommand__storage_, uiValue),
+        .offset = offsetof(SetValueSubCommand__storage_, otherValue),
         .defaultValue.valueUInt32 = 0U,
         .dataTypeSpecific.className = NULL,
         .fieldOptions = NULL,
@@ -104,7 +78,7 @@ typedef struct SetValueSubCommand__storage_ {
       {
         .name = "userId",
         .number = SetValueSubCommand_FieldNumber_UserId,
-        .hasIndex = 4,
+        .hasIndex = 2,
         .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
         .dataType = GPBDataTypeUInt32,
         .offset = offsetof(SetValueSubCommand__storage_, userId),
@@ -116,7 +90,7 @@ typedef struct SetValueSubCommand__storage_ {
 #if GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     const char *extraTextFormatInfo = NULL;
 #else
-    static const char *extraTextFormatInfo = "\004\002\006\000\003\006\000\004\007\000\005\006\000";
+    static const char *extraTextFormatInfo = "\002\002\n\000\003\006\000";
 #endif  // GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[SetValueSubCommand class]

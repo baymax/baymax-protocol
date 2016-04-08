@@ -31,16 +31,18 @@ static GPBFileDescriptor *ValueSettedSubCommandRoot_FileDescriptor(void) {
 
 @dynamic valuesOneOfCase;
 @dynamic id_p;
-@dynamic iValue;
-@dynamic fValue;
-@dynamic uiValue;
+@dynamic otherValue;
+@dynamic currentValue;
+@dynamic voltageValue;
+@dynamic temperatureValue;
 
 typedef struct ValueSettedSubCommand__storage_ {
   uint32_t _has_storage_[2];
   uint32_t id_p;
-  int32_t iValue;
-  float fValue;
-  uint32_t uiValue;
+  uint32_t otherValue;
+  uint32_t currentValue;
+  uint32_t voltageValue;
+  float temperatureValue;
 } ValueSettedSubCommand__storage_;
 
 // This method is threadsafe because it is initially called
@@ -67,35 +69,46 @@ typedef struct ValueSettedSubCommand__storage_ {
         .fieldOptions = NULL,
       },
       {
-        .name = "iValue",
-        .number = ValueSettedSubCommand_FieldNumber_IValue,
-        .hasIndex = -1,
-        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
-        .dataType = GPBDataTypeInt32,
-        .offset = offsetof(ValueSettedSubCommand__storage_, iValue),
-        .defaultValue.valueInt32 = 0,
-        .dataTypeSpecific.className = NULL,
-        .fieldOptions = NULL,
-      },
-      {
-        .name = "fValue",
-        .number = ValueSettedSubCommand_FieldNumber_FValue,
-        .hasIndex = -1,
-        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
-        .dataType = GPBDataTypeFloat,
-        .offset = offsetof(ValueSettedSubCommand__storage_, fValue),
-        .defaultValue.valueFloat = 0,
-        .dataTypeSpecific.className = NULL,
-        .fieldOptions = NULL,
-      },
-      {
-        .name = "uiValue",
-        .number = ValueSettedSubCommand_FieldNumber_UiValue,
+        .name = "otherValue",
+        .number = ValueSettedSubCommand_FieldNumber_OtherValue,
         .hasIndex = -1,
         .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
         .dataType = GPBDataTypeUInt32,
-        .offset = offsetof(ValueSettedSubCommand__storage_, uiValue),
+        .offset = offsetof(ValueSettedSubCommand__storage_, otherValue),
         .defaultValue.valueUInt32 = 0U,
+        .dataTypeSpecific.className = NULL,
+        .fieldOptions = NULL,
+      },
+      {
+        .name = "currentValue",
+        .number = ValueSettedSubCommand_FieldNumber_CurrentValue,
+        .hasIndex = -1,
+        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
+        .dataType = GPBDataTypeUInt32,
+        .offset = offsetof(ValueSettedSubCommand__storage_, currentValue),
+        .defaultValue.valueUInt32 = 0U,
+        .dataTypeSpecific.className = NULL,
+        .fieldOptions = NULL,
+      },
+      {
+        .name = "voltageValue",
+        .number = ValueSettedSubCommand_FieldNumber_VoltageValue,
+        .hasIndex = -1,
+        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
+        .dataType = GPBDataTypeUInt32,
+        .offset = offsetof(ValueSettedSubCommand__storage_, voltageValue),
+        .defaultValue.valueUInt32 = 0U,
+        .dataTypeSpecific.className = NULL,
+        .fieldOptions = NULL,
+      },
+      {
+        .name = "temperatureValue",
+        .number = ValueSettedSubCommand_FieldNumber_TemperatureValue,
+        .hasIndex = -1,
+        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
+        .dataType = GPBDataTypeFloat,
+        .offset = offsetof(ValueSettedSubCommand__storage_, temperatureValue),
+        .defaultValue.valueFloat = 0,
         .dataTypeSpecific.className = NULL,
         .fieldOptions = NULL,
       },
@@ -103,7 +116,7 @@ typedef struct ValueSettedSubCommand__storage_ {
 #if GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     const char *extraTextFormatInfo = NULL;
 #else
-    static const char *extraTextFormatInfo = "\003\002\006\000\003\006\000\004\007\000";
+    static const char *extraTextFormatInfo = "\004\002\n\000\003\014\000\004\014\000\005\020\000";
 #endif  // GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[ValueSettedSubCommand class]

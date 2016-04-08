@@ -23,9 +23,10 @@ const ::google::protobuf::Descriptor* ValueSettedSubCommand_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ValueSettedSubCommand_reflection_ = NULL;
 struct ValueSettedSubCommandOneofInstance {
-  ::google::protobuf::int32 ivalue_;
-  float fvalue_;
-  ::google::protobuf::uint32 uivalue_;
+  ::google::protobuf::uint32 othervalue_;
+  ::google::protobuf::uint32 currentvalue_;
+  ::google::protobuf::uint32 voltagevalue_;
+  float temperaturevalue_;
 }* ValueSettedSubCommand_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -38,11 +39,12 @@ void protobuf_AssignDesc_proto_2fValueSettedSubCommand_2eproto() {
       "proto/ValueSettedSubCommand.proto");
   GOOGLE_CHECK(file != NULL);
   ValueSettedSubCommand_descriptor_ = file->message_type(0);
-  static const int ValueSettedSubCommand_offsets_[5] = {
+  static const int ValueSettedSubCommand_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ValueSettedSubCommand, id_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, ivalue_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, fvalue_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, uivalue_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, othervalue_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, currentvalue_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, voltagevalue_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, temperaturevalue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ValueSettedSubCommand, values_),
   };
   ValueSettedSubCommand_reflection_ =
@@ -89,10 +91,11 @@ void protobuf_AddDesc_proto_2fValueSettedSubCommand_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n!proto/ValueSettedSubCommand.proto\"d\n\025V"
-    "alueSettedSubCommand\022\n\n\002id\030\001 \001(\r\022\020\n\006iVal"
-    "ue\030\002 \001(\005H\000\022\020\n\006fValue\030\003 \001(\002H\000\022\021\n\007uiValue\030"
-    "\004 \001(\rH\000B\010\n\006valuesb\006proto3", 145);
+    "\n!proto/ValueSettedSubCommand.proto\"\217\001\n\025"
+    "ValueSettedSubCommand\022\n\n\002id\030\001 \001(\r\022\024\n\noth"
+    "erValue\030\002 \001(\rH\000\022\026\n\014currentValue\030\003 \001(\rH\000\022"
+    "\026\n\014voltageValue\030\004 \001(\rH\000\022\032\n\020temperatureVa"
+    "lue\030\005 \001(\002H\000B\010\n\006valuesb\006proto3", 189);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto/ValueSettedSubCommand.proto", &protobuf_RegisterTypes);
   ValueSettedSubCommand::default_instance_ = new ValueSettedSubCommand();
@@ -122,9 +125,10 @@ static void MergeFromFail(int line) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ValueSettedSubCommand::kIdFieldNumber;
-const int ValueSettedSubCommand::kIValueFieldNumber;
-const int ValueSettedSubCommand::kFValueFieldNumber;
-const int ValueSettedSubCommand::kUiValueFieldNumber;
+const int ValueSettedSubCommand::kOtherValueFieldNumber;
+const int ValueSettedSubCommand::kCurrentValueFieldNumber;
+const int ValueSettedSubCommand::kVoltageValueFieldNumber;
+const int ValueSettedSubCommand::kTemperatureValueFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ValueSettedSubCommand::ValueSettedSubCommand()
@@ -135,9 +139,10 @@ ValueSettedSubCommand::ValueSettedSubCommand()
 
 void ValueSettedSubCommand::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  ValueSettedSubCommand_default_oneof_instance_->ivalue_ = 0;
-  ValueSettedSubCommand_default_oneof_instance_->fvalue_ = 0;
-  ValueSettedSubCommand_default_oneof_instance_->uivalue_ = 0u;
+  ValueSettedSubCommand_default_oneof_instance_->othervalue_ = 0u;
+  ValueSettedSubCommand_default_oneof_instance_->currentvalue_ = 0u;
+  ValueSettedSubCommand_default_oneof_instance_->voltagevalue_ = 0u;
+  ValueSettedSubCommand_default_oneof_instance_->temperaturevalue_ = 0;
 }
 
 ValueSettedSubCommand::ValueSettedSubCommand(const ValueSettedSubCommand& from)
@@ -195,15 +200,19 @@ ValueSettedSubCommand* ValueSettedSubCommand::New(::google::protobuf::Arena* are
 
 void ValueSettedSubCommand::clear_values() {
   switch(values_case()) {
-    case kIValue: {
+    case kOtherValue: {
       // No need to clear
       break;
     }
-    case kFValue: {
+    case kCurrentValue: {
       // No need to clear
       break;
     }
-    case kUiValue: {
+    case kVoltageValue: {
+      // No need to clear
+      break;
+    }
+    case kTemperatureValue: {
       // No need to clear
       break;
     }
@@ -240,51 +249,67 @@ bool ValueSettedSubCommand::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_iValue;
+        if (input->ExpectTag(16)) goto parse_otherValue;
         break;
       }
 
-      // optional int32 iValue = 2;
+      // optional uint32 otherValue = 2;
       case 2: {
         if (tag == 16) {
-         parse_iValue:
-          clear_values();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &values_.ivalue_)));
-          set_has_ivalue();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(29)) goto parse_fValue;
-        break;
-      }
-
-      // optional float fValue = 3;
-      case 3: {
-        if (tag == 29) {
-         parse_fValue:
-          clear_values();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &values_.fvalue_)));
-          set_has_fvalue();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_uiValue;
-        break;
-      }
-
-      // optional uint32 uiValue = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_uiValue:
+         parse_otherValue:
           clear_values();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &values_.uivalue_)));
-          set_has_uivalue();
+                 input, &values_.othervalue_)));
+          set_has_othervalue();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_currentValue;
+        break;
+      }
+
+      // optional uint32 currentValue = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_currentValue:
+          clear_values();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &values_.currentvalue_)));
+          set_has_currentvalue();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(32)) goto parse_voltageValue;
+        break;
+      }
+
+      // optional uint32 voltageValue = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_voltageValue:
+          clear_values();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &values_.voltagevalue_)));
+          set_has_voltagevalue();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(45)) goto parse_temperatureValue;
+        break;
+      }
+
+      // optional float temperatureValue = 5;
+      case 5: {
+        if (tag == 45) {
+         parse_temperatureValue:
+          clear_values();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &values_.temperaturevalue_)));
+          set_has_temperaturevalue();
         } else {
           goto handle_unusual;
         }
@@ -321,19 +346,24 @@ void ValueSettedSubCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
-  // optional int32 iValue = 2;
-  if (has_ivalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ivalue(), output);
+  // optional uint32 otherValue = 2;
+  if (has_othervalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->othervalue(), output);
   }
 
-  // optional float fValue = 3;
-  if (has_fvalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->fvalue(), output);
+  // optional uint32 currentValue = 3;
+  if (has_currentvalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->currentvalue(), output);
   }
 
-  // optional uint32 uiValue = 4;
-  if (has_uivalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->uivalue(), output);
+  // optional uint32 voltageValue = 4;
+  if (has_voltagevalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->voltagevalue(), output);
+  }
+
+  // optional float temperatureValue = 5;
+  if (has_temperaturevalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->temperaturevalue(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:ValueSettedSubCommand)
@@ -347,19 +377,24 @@ void ValueSettedSubCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
-  // optional int32 iValue = 2;
-  if (has_ivalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ivalue(), target);
+  // optional uint32 otherValue = 2;
+  if (has_othervalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->othervalue(), target);
   }
 
-  // optional float fValue = 3;
-  if (has_fvalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->fvalue(), target);
+  // optional uint32 currentValue = 3;
+  if (has_currentvalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->currentvalue(), target);
   }
 
-  // optional uint32 uiValue = 4;
-  if (has_uivalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->uivalue(), target);
+  // optional uint32 voltageValue = 4;
+  if (has_voltagevalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->voltagevalue(), target);
+  }
+
+  // optional float temperatureValue = 5;
+  if (has_temperaturevalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->temperaturevalue(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:ValueSettedSubCommand)
@@ -377,23 +412,30 @@ int ValueSettedSubCommand::ByteSize() const {
   }
 
   switch (values_case()) {
-    // optional int32 iValue = 2;
-    case kIValue: {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->ivalue());
-      break;
-    }
-    // optional float fValue = 3;
-    case kFValue: {
-      total_size += 1 + 4;
-      break;
-    }
-    // optional uint32 uiValue = 4;
-    case kUiValue: {
+    // optional uint32 otherValue = 2;
+    case kOtherValue: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->uivalue());
+          this->othervalue());
+      break;
+    }
+    // optional uint32 currentValue = 3;
+    case kCurrentValue: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->currentvalue());
+      break;
+    }
+    // optional uint32 voltageValue = 4;
+    case kVoltageValue: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->voltagevalue());
+      break;
+    }
+    // optional float temperatureValue = 5;
+    case kTemperatureValue: {
+      total_size += 1 + 4;
       break;
     }
     case VALUES_NOT_SET: {
@@ -421,16 +463,20 @@ void ValueSettedSubCommand::MergeFrom(const ::google::protobuf::Message& from) {
 void ValueSettedSubCommand::MergeFrom(const ValueSettedSubCommand& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   switch (from.values_case()) {
-    case kIValue: {
-      set_ivalue(from.ivalue());
+    case kOtherValue: {
+      set_othervalue(from.othervalue());
       break;
     }
-    case kFValue: {
-      set_fvalue(from.fvalue());
+    case kCurrentValue: {
+      set_currentvalue(from.currentvalue());
       break;
     }
-    case kUiValue: {
-      set_uivalue(from.uivalue());
+    case kVoltageValue: {
+      set_voltagevalue(from.voltagevalue());
+      break;
+    }
+    case kTemperatureValue: {
+      set_temperaturevalue(from.temperaturevalue());
       break;
     }
     case VALUES_NOT_SET: {
@@ -496,91 +542,120 @@ void ValueSettedSubCommand::clear_id() {
   // @@protoc_insertion_point(field_set:ValueSettedSubCommand.id)
 }
 
-// optional int32 iValue = 2;
-bool ValueSettedSubCommand::has_ivalue() const {
-  return values_case() == kIValue;
+// optional uint32 otherValue = 2;
+bool ValueSettedSubCommand::has_othervalue() const {
+  return values_case() == kOtherValue;
 }
-void ValueSettedSubCommand::set_has_ivalue() {
-  _oneof_case_[0] = kIValue;
+void ValueSettedSubCommand::set_has_othervalue() {
+  _oneof_case_[0] = kOtherValue;
 }
-void ValueSettedSubCommand::clear_ivalue() {
-  if (has_ivalue()) {
-    values_.ivalue_ = 0;
+void ValueSettedSubCommand::clear_othervalue() {
+  if (has_othervalue()) {
+    values_.othervalue_ = 0u;
     clear_has_values();
   }
 }
- ::google::protobuf::int32 ValueSettedSubCommand::ivalue() const {
-  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.iValue)
-  if (has_ivalue()) {
-    return values_.ivalue_;
-  }
-  return 0;
-}
- void ValueSettedSubCommand::set_ivalue(::google::protobuf::int32 value) {
-  if (!has_ivalue()) {
-    clear_values();
-    set_has_ivalue();
-  }
-  values_.ivalue_ = value;
-  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.iValue)
-}
-
-// optional float fValue = 3;
-bool ValueSettedSubCommand::has_fvalue() const {
-  return values_case() == kFValue;
-}
-void ValueSettedSubCommand::set_has_fvalue() {
-  _oneof_case_[0] = kFValue;
-}
-void ValueSettedSubCommand::clear_fvalue() {
-  if (has_fvalue()) {
-    values_.fvalue_ = 0;
-    clear_has_values();
-  }
-}
- float ValueSettedSubCommand::fvalue() const {
-  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.fValue)
-  if (has_fvalue()) {
-    return values_.fvalue_;
-  }
-  return 0;
-}
- void ValueSettedSubCommand::set_fvalue(float value) {
-  if (!has_fvalue()) {
-    clear_values();
-    set_has_fvalue();
-  }
-  values_.fvalue_ = value;
-  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.fValue)
-}
-
-// optional uint32 uiValue = 4;
-bool ValueSettedSubCommand::has_uivalue() const {
-  return values_case() == kUiValue;
-}
-void ValueSettedSubCommand::set_has_uivalue() {
-  _oneof_case_[0] = kUiValue;
-}
-void ValueSettedSubCommand::clear_uivalue() {
-  if (has_uivalue()) {
-    values_.uivalue_ = 0u;
-    clear_has_values();
-  }
-}
- ::google::protobuf::uint32 ValueSettedSubCommand::uivalue() const {
-  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.uiValue)
-  if (has_uivalue()) {
-    return values_.uivalue_;
+ ::google::protobuf::uint32 ValueSettedSubCommand::othervalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.otherValue)
+  if (has_othervalue()) {
+    return values_.othervalue_;
   }
   return 0u;
 }
- void ValueSettedSubCommand::set_uivalue(::google::protobuf::uint32 value) {
-  if (!has_uivalue()) {
+ void ValueSettedSubCommand::set_othervalue(::google::protobuf::uint32 value) {
+  if (!has_othervalue()) {
     clear_values();
-    set_has_uivalue();
+    set_has_othervalue();
   }
-  values_.uivalue_ = value;
-  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.uiValue)
+  values_.othervalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.otherValue)
+}
+
+// optional uint32 currentValue = 3;
+bool ValueSettedSubCommand::has_currentvalue() const {
+  return values_case() == kCurrentValue;
+}
+void ValueSettedSubCommand::set_has_currentvalue() {
+  _oneof_case_[0] = kCurrentValue;
+}
+void ValueSettedSubCommand::clear_currentvalue() {
+  if (has_currentvalue()) {
+    values_.currentvalue_ = 0u;
+    clear_has_values();
+  }
+}
+ ::google::protobuf::uint32 ValueSettedSubCommand::currentvalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.currentValue)
+  if (has_currentvalue()) {
+    return values_.currentvalue_;
+  }
+  return 0u;
+}
+ void ValueSettedSubCommand::set_currentvalue(::google::protobuf::uint32 value) {
+  if (!has_currentvalue()) {
+    clear_values();
+    set_has_currentvalue();
+  }
+  values_.currentvalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.currentValue)
+}
+
+// optional uint32 voltageValue = 4;
+bool ValueSettedSubCommand::has_voltagevalue() const {
+  return values_case() == kVoltageValue;
+}
+void ValueSettedSubCommand::set_has_voltagevalue() {
+  _oneof_case_[0] = kVoltageValue;
+}
+void ValueSettedSubCommand::clear_voltagevalue() {
+  if (has_voltagevalue()) {
+    values_.voltagevalue_ = 0u;
+    clear_has_values();
+  }
+}
+ ::google::protobuf::uint32 ValueSettedSubCommand::voltagevalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.voltageValue)
+  if (has_voltagevalue()) {
+    return values_.voltagevalue_;
+  }
+  return 0u;
+}
+ void ValueSettedSubCommand::set_voltagevalue(::google::protobuf::uint32 value) {
+  if (!has_voltagevalue()) {
+    clear_values();
+    set_has_voltagevalue();
+  }
+  values_.voltagevalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.voltageValue)
+}
+
+// optional float temperatureValue = 5;
+bool ValueSettedSubCommand::has_temperaturevalue() const {
+  return values_case() == kTemperatureValue;
+}
+void ValueSettedSubCommand::set_has_temperaturevalue() {
+  _oneof_case_[0] = kTemperatureValue;
+}
+void ValueSettedSubCommand::clear_temperaturevalue() {
+  if (has_temperaturevalue()) {
+    values_.temperaturevalue_ = 0;
+    clear_has_values();
+  }
+}
+ float ValueSettedSubCommand::temperaturevalue() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.temperatureValue)
+  if (has_temperaturevalue()) {
+    return values_.temperaturevalue_;
+  }
+  return 0;
+}
+ void ValueSettedSubCommand::set_temperaturevalue(float value) {
+  if (!has_temperaturevalue()) {
+    clear_values();
+    set_has_temperaturevalue();
+  }
+  values_.temperaturevalue_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.temperatureValue)
 }
 
 bool ValueSettedSubCommand::has_values() const {

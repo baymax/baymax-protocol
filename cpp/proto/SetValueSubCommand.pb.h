@@ -54,9 +54,7 @@ class SetValueSubCommand : public ::google::protobuf::Message {
   static const SetValueSubCommand& default_instance();
 
   enum ValuesCase {
-    kIValue = 2,
-    kFValue = 3,
-    kUiValue = 4,
+    kOtherValue = 2,
     VALUES_NOT_SET = 0,
   };
 
@@ -107,45 +105,25 @@ class SetValueSubCommand : public ::google::protobuf::Message {
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
 
-  // optional int32 iValue = 2;
+  // optional uint32 otherValue = 2;
   private:
-  bool has_ivalue() const;
+  bool has_othervalue() const;
   public:
-  void clear_ivalue();
-  static const int kIValueFieldNumber = 2;
-  ::google::protobuf::int32 ivalue() const;
-  void set_ivalue(::google::protobuf::int32 value);
+  void clear_othervalue();
+  static const int kOtherValueFieldNumber = 2;
+  ::google::protobuf::uint32 othervalue() const;
+  void set_othervalue(::google::protobuf::uint32 value);
 
-  // optional float fValue = 3;
-  private:
-  bool has_fvalue() const;
-  public:
-  void clear_fvalue();
-  static const int kFValueFieldNumber = 3;
-  float fvalue() const;
-  void set_fvalue(float value);
-
-  // optional uint32 uiValue = 4;
-  private:
-  bool has_uivalue() const;
-  public:
-  void clear_uivalue();
-  static const int kUiValueFieldNumber = 4;
-  ::google::protobuf::uint32 uivalue() const;
-  void set_uivalue(::google::protobuf::uint32 value);
-
-  // optional uint32 userId = 5;
+  // optional uint32 userId = 3;
   void clear_userid();
-  static const int kUserIdFieldNumber = 5;
+  static const int kUserIdFieldNumber = 3;
   ::google::protobuf::uint32 userid() const;
   void set_userid(::google::protobuf::uint32 value);
 
   ValuesCase values_case() const;
   // @@protoc_insertion_point(class_scope:SetValueSubCommand)
  private:
-  inline void set_has_ivalue();
-  inline void set_has_fvalue();
-  inline void set_has_uivalue();
+  inline void set_has_othervalue();
 
   inline bool has_values() const;
   void clear_values();
@@ -157,9 +135,7 @@ class SetValueSubCommand : public ::google::protobuf::Message {
   ::google::protobuf::uint32 userid_;
   union ValuesUnion {
     ValuesUnion() {}
-    ::google::protobuf::int32 ivalue_;
-    float fvalue_;
-    ::google::protobuf::uint32 uivalue_;
+    ::google::protobuf::uint32 othervalue_;
   } values_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -193,94 +169,36 @@ inline void SetValueSubCommand::set_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:SetValueSubCommand.id)
 }
 
-// optional int32 iValue = 2;
-inline bool SetValueSubCommand::has_ivalue() const {
-  return values_case() == kIValue;
+// optional uint32 otherValue = 2;
+inline bool SetValueSubCommand::has_othervalue() const {
+  return values_case() == kOtherValue;
 }
-inline void SetValueSubCommand::set_has_ivalue() {
-  _oneof_case_[0] = kIValue;
+inline void SetValueSubCommand::set_has_othervalue() {
+  _oneof_case_[0] = kOtherValue;
 }
-inline void SetValueSubCommand::clear_ivalue() {
-  if (has_ivalue()) {
-    values_.ivalue_ = 0;
+inline void SetValueSubCommand::clear_othervalue() {
+  if (has_othervalue()) {
+    values_.othervalue_ = 0u;
     clear_has_values();
   }
 }
-inline ::google::protobuf::int32 SetValueSubCommand::ivalue() const {
-  // @@protoc_insertion_point(field_get:SetValueSubCommand.iValue)
-  if (has_ivalue()) {
-    return values_.ivalue_;
-  }
-  return 0;
-}
-inline void SetValueSubCommand::set_ivalue(::google::protobuf::int32 value) {
-  if (!has_ivalue()) {
-    clear_values();
-    set_has_ivalue();
-  }
-  values_.ivalue_ = value;
-  // @@protoc_insertion_point(field_set:SetValueSubCommand.iValue)
-}
-
-// optional float fValue = 3;
-inline bool SetValueSubCommand::has_fvalue() const {
-  return values_case() == kFValue;
-}
-inline void SetValueSubCommand::set_has_fvalue() {
-  _oneof_case_[0] = kFValue;
-}
-inline void SetValueSubCommand::clear_fvalue() {
-  if (has_fvalue()) {
-    values_.fvalue_ = 0;
-    clear_has_values();
-  }
-}
-inline float SetValueSubCommand::fvalue() const {
-  // @@protoc_insertion_point(field_get:SetValueSubCommand.fValue)
-  if (has_fvalue()) {
-    return values_.fvalue_;
-  }
-  return 0;
-}
-inline void SetValueSubCommand::set_fvalue(float value) {
-  if (!has_fvalue()) {
-    clear_values();
-    set_has_fvalue();
-  }
-  values_.fvalue_ = value;
-  // @@protoc_insertion_point(field_set:SetValueSubCommand.fValue)
-}
-
-// optional uint32 uiValue = 4;
-inline bool SetValueSubCommand::has_uivalue() const {
-  return values_case() == kUiValue;
-}
-inline void SetValueSubCommand::set_has_uivalue() {
-  _oneof_case_[0] = kUiValue;
-}
-inline void SetValueSubCommand::clear_uivalue() {
-  if (has_uivalue()) {
-    values_.uivalue_ = 0u;
-    clear_has_values();
-  }
-}
-inline ::google::protobuf::uint32 SetValueSubCommand::uivalue() const {
-  // @@protoc_insertion_point(field_get:SetValueSubCommand.uiValue)
-  if (has_uivalue()) {
-    return values_.uivalue_;
+inline ::google::protobuf::uint32 SetValueSubCommand::othervalue() const {
+  // @@protoc_insertion_point(field_get:SetValueSubCommand.otherValue)
+  if (has_othervalue()) {
+    return values_.othervalue_;
   }
   return 0u;
 }
-inline void SetValueSubCommand::set_uivalue(::google::protobuf::uint32 value) {
-  if (!has_uivalue()) {
+inline void SetValueSubCommand::set_othervalue(::google::protobuf::uint32 value) {
+  if (!has_othervalue()) {
     clear_values();
-    set_has_uivalue();
+    set_has_othervalue();
   }
-  values_.uivalue_ = value;
-  // @@protoc_insertion_point(field_set:SetValueSubCommand.uiValue)
+  values_.othervalue_ = value;
+  // @@protoc_insertion_point(field_set:SetValueSubCommand.otherValue)
 }
 
-// optional uint32 userId = 5;
+// optional uint32 userId = 3;
 inline void SetValueSubCommand::clear_userid() {
   userid_ = 0u;
 }

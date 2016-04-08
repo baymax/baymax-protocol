@@ -23,9 +23,7 @@ const ::google::protobuf::Descriptor* SetValueSubCommand_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SetValueSubCommand_reflection_ = NULL;
 struct SetValueSubCommandOneofInstance {
-  ::google::protobuf::int32 ivalue_;
-  float fvalue_;
-  ::google::protobuf::uint32 uivalue_;
+  ::google::protobuf::uint32 othervalue_;
 }* SetValueSubCommand_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -38,11 +36,9 @@ void protobuf_AssignDesc_proto_2fSetValueSubCommand_2eproto() {
       "proto/SetValueSubCommand.proto");
   GOOGLE_CHECK(file != NULL);
   SetValueSubCommand_descriptor_ = file->message_type(0);
-  static const int SetValueSubCommand_offsets_[6] = {
+  static const int SetValueSubCommand_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetValueSubCommand, id_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(SetValueSubCommand_default_oneof_instance_, ivalue_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(SetValueSubCommand_default_oneof_instance_, fvalue_),
-    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(SetValueSubCommand_default_oneof_instance_, uivalue_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(SetValueSubCommand_default_oneof_instance_, othervalue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetValueSubCommand, userid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SetValueSubCommand, values_),
   };
@@ -90,10 +86,10 @@ void protobuf_AddDesc_proto_2fSetValueSubCommand_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\036proto/SetValueSubCommand.proto\"q\n\022SetV"
-    "alueSubCommand\022\n\n\002id\030\001 \001(\r\022\020\n\006iValue\030\002 \001"
-    "(\005H\000\022\020\n\006fValue\030\003 \001(\002H\000\022\021\n\007uiValue\030\004 \001(\rH"
-    "\000\022\016\n\006userId\030\005 \001(\rB\010\n\006valuesb\006proto3", 155);
+    "\n\036proto/SetValueSubCommand.proto\"P\n\022SetV"
+    "alueSubCommand\022\n\n\002id\030\001 \001(\r\022\024\n\notherValue"
+    "\030\002 \001(\rH\000\022\016\n\006userId\030\003 \001(\rB\010\n\006valuesb\006prot"
+    "o3", 122);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto/SetValueSubCommand.proto", &protobuf_RegisterTypes);
   SetValueSubCommand::default_instance_ = new SetValueSubCommand();
@@ -123,9 +119,7 @@ static void MergeFromFail(int line) {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SetValueSubCommand::kIdFieldNumber;
-const int SetValueSubCommand::kIValueFieldNumber;
-const int SetValueSubCommand::kFValueFieldNumber;
-const int SetValueSubCommand::kUiValueFieldNumber;
+const int SetValueSubCommand::kOtherValueFieldNumber;
 const int SetValueSubCommand::kUserIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -137,9 +131,7 @@ SetValueSubCommand::SetValueSubCommand()
 
 void SetValueSubCommand::InitAsDefaultInstance() {
   _is_default_instance_ = true;
-  SetValueSubCommand_default_oneof_instance_->ivalue_ = 0;
-  SetValueSubCommand_default_oneof_instance_->fvalue_ = 0;
-  SetValueSubCommand_default_oneof_instance_->uivalue_ = 0u;
+  SetValueSubCommand_default_oneof_instance_->othervalue_ = 0u;
 }
 
 SetValueSubCommand::SetValueSubCommand(const SetValueSubCommand& from)
@@ -198,15 +190,7 @@ SetValueSubCommand* SetValueSubCommand::New(::google::protobuf::Arena* arena) co
 
 void SetValueSubCommand::clear_values() {
   switch(values_case()) {
-    case kIValue: {
-      // No need to clear
-      break;
-    }
-    case kFValue: {
-      // No need to clear
-      break;
-    }
-    case kUiValue: {
+    case kOtherValue: {
       // No need to clear
       break;
     }
@@ -255,61 +239,29 @@ bool SetValueSubCommand::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_iValue;
+        if (input->ExpectTag(16)) goto parse_otherValue;
         break;
       }
 
-      // optional int32 iValue = 2;
+      // optional uint32 otherValue = 2;
       case 2: {
         if (tag == 16) {
-         parse_iValue:
-          clear_values();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &values_.ivalue_)));
-          set_has_ivalue();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(29)) goto parse_fValue;
-        break;
-      }
-
-      // optional float fValue = 3;
-      case 3: {
-        if (tag == 29) {
-         parse_fValue:
-          clear_values();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &values_.fvalue_)));
-          set_has_fvalue();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_uiValue;
-        break;
-      }
-
-      // optional uint32 uiValue = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_uiValue:
+         parse_otherValue:
           clear_values();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &values_.uivalue_)));
-          set_has_uivalue();
+                 input, &values_.othervalue_)));
+          set_has_othervalue();
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_userId;
+        if (input->ExpectTag(24)) goto parse_userId;
         break;
       }
 
-      // optional uint32 userId = 5;
-      case 5: {
-        if (tag == 40) {
+      // optional uint32 userId = 3;
+      case 3: {
+        if (tag == 24) {
          parse_userId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -351,24 +303,14 @@ void SetValueSubCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
   }
 
-  // optional int32 iValue = 2;
-  if (has_ivalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->ivalue(), output);
+  // optional uint32 otherValue = 2;
+  if (has_othervalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->othervalue(), output);
   }
 
-  // optional float fValue = 3;
-  if (has_fvalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->fvalue(), output);
-  }
-
-  // optional uint32 uiValue = 4;
-  if (has_uivalue()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->uivalue(), output);
-  }
-
-  // optional uint32 userId = 5;
+  // optional uint32 userId = 3;
   if (this->userid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->userid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->userid(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:SetValueSubCommand)
@@ -382,24 +324,14 @@ void SetValueSubCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
   }
 
-  // optional int32 iValue = 2;
-  if (has_ivalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ivalue(), target);
+  // optional uint32 otherValue = 2;
+  if (has_othervalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->othervalue(), target);
   }
 
-  // optional float fValue = 3;
-  if (has_fvalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->fvalue(), target);
-  }
-
-  // optional uint32 uiValue = 4;
-  if (has_uivalue()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->uivalue(), target);
-  }
-
-  // optional uint32 userId = 5;
+  // optional uint32 userId = 3;
   if (this->userid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->userid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->userid(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:SetValueSubCommand)
@@ -416,7 +348,7 @@ int SetValueSubCommand::ByteSize() const {
         this->id());
   }
 
-  // optional uint32 userId = 5;
+  // optional uint32 userId = 3;
   if (this->userid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -424,23 +356,11 @@ int SetValueSubCommand::ByteSize() const {
   }
 
   switch (values_case()) {
-    // optional int32 iValue = 2;
-    case kIValue: {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->ivalue());
-      break;
-    }
-    // optional float fValue = 3;
-    case kFValue: {
-      total_size += 1 + 4;
-      break;
-    }
-    // optional uint32 uiValue = 4;
-    case kUiValue: {
+    // optional uint32 otherValue = 2;
+    case kOtherValue: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->uivalue());
+          this->othervalue());
       break;
     }
     case VALUES_NOT_SET: {
@@ -468,16 +388,8 @@ void SetValueSubCommand::MergeFrom(const ::google::protobuf::Message& from) {
 void SetValueSubCommand::MergeFrom(const SetValueSubCommand& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
   switch (from.values_case()) {
-    case kIValue: {
-      set_ivalue(from.ivalue());
-      break;
-    }
-    case kFValue: {
-      set_fvalue(from.fvalue());
-      break;
-    }
-    case kUiValue: {
-      set_uivalue(from.uivalue());
+    case kOtherValue: {
+      set_othervalue(from.othervalue());
       break;
     }
     case VALUES_NOT_SET: {
@@ -547,94 +459,36 @@ void SetValueSubCommand::clear_id() {
   // @@protoc_insertion_point(field_set:SetValueSubCommand.id)
 }
 
-// optional int32 iValue = 2;
-bool SetValueSubCommand::has_ivalue() const {
-  return values_case() == kIValue;
+// optional uint32 otherValue = 2;
+bool SetValueSubCommand::has_othervalue() const {
+  return values_case() == kOtherValue;
 }
-void SetValueSubCommand::set_has_ivalue() {
-  _oneof_case_[0] = kIValue;
+void SetValueSubCommand::set_has_othervalue() {
+  _oneof_case_[0] = kOtherValue;
 }
-void SetValueSubCommand::clear_ivalue() {
-  if (has_ivalue()) {
-    values_.ivalue_ = 0;
+void SetValueSubCommand::clear_othervalue() {
+  if (has_othervalue()) {
+    values_.othervalue_ = 0u;
     clear_has_values();
   }
 }
- ::google::protobuf::int32 SetValueSubCommand::ivalue() const {
-  // @@protoc_insertion_point(field_get:SetValueSubCommand.iValue)
-  if (has_ivalue()) {
-    return values_.ivalue_;
-  }
-  return 0;
-}
- void SetValueSubCommand::set_ivalue(::google::protobuf::int32 value) {
-  if (!has_ivalue()) {
-    clear_values();
-    set_has_ivalue();
-  }
-  values_.ivalue_ = value;
-  // @@protoc_insertion_point(field_set:SetValueSubCommand.iValue)
-}
-
-// optional float fValue = 3;
-bool SetValueSubCommand::has_fvalue() const {
-  return values_case() == kFValue;
-}
-void SetValueSubCommand::set_has_fvalue() {
-  _oneof_case_[0] = kFValue;
-}
-void SetValueSubCommand::clear_fvalue() {
-  if (has_fvalue()) {
-    values_.fvalue_ = 0;
-    clear_has_values();
-  }
-}
- float SetValueSubCommand::fvalue() const {
-  // @@protoc_insertion_point(field_get:SetValueSubCommand.fValue)
-  if (has_fvalue()) {
-    return values_.fvalue_;
-  }
-  return 0;
-}
- void SetValueSubCommand::set_fvalue(float value) {
-  if (!has_fvalue()) {
-    clear_values();
-    set_has_fvalue();
-  }
-  values_.fvalue_ = value;
-  // @@protoc_insertion_point(field_set:SetValueSubCommand.fValue)
-}
-
-// optional uint32 uiValue = 4;
-bool SetValueSubCommand::has_uivalue() const {
-  return values_case() == kUiValue;
-}
-void SetValueSubCommand::set_has_uivalue() {
-  _oneof_case_[0] = kUiValue;
-}
-void SetValueSubCommand::clear_uivalue() {
-  if (has_uivalue()) {
-    values_.uivalue_ = 0u;
-    clear_has_values();
-  }
-}
- ::google::protobuf::uint32 SetValueSubCommand::uivalue() const {
-  // @@protoc_insertion_point(field_get:SetValueSubCommand.uiValue)
-  if (has_uivalue()) {
-    return values_.uivalue_;
+ ::google::protobuf::uint32 SetValueSubCommand::othervalue() const {
+  // @@protoc_insertion_point(field_get:SetValueSubCommand.otherValue)
+  if (has_othervalue()) {
+    return values_.othervalue_;
   }
   return 0u;
 }
- void SetValueSubCommand::set_uivalue(::google::protobuf::uint32 value) {
-  if (!has_uivalue()) {
+ void SetValueSubCommand::set_othervalue(::google::protobuf::uint32 value) {
+  if (!has_othervalue()) {
     clear_values();
-    set_has_uivalue();
+    set_has_othervalue();
   }
-  values_.uivalue_ = value;
-  // @@protoc_insertion_point(field_set:SetValueSubCommand.uiValue)
+  values_.othervalue_ = value;
+  // @@protoc_insertion_point(field_set:SetValueSubCommand.otherValue)
 }
 
-// optional uint32 userId = 5;
+// optional uint32 userId = 3;
 void SetValueSubCommand::clear_userid() {
   userid_ = 0u;
 }

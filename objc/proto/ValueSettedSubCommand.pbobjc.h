@@ -28,16 +28,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef GPB_ENUM(ValueSettedSubCommand_FieldNumber) {
   ValueSettedSubCommand_FieldNumber_Id_p = 1,
-  ValueSettedSubCommand_FieldNumber_IValue = 2,
-  ValueSettedSubCommand_FieldNumber_FValue = 3,
-  ValueSettedSubCommand_FieldNumber_UiValue = 4,
+  ValueSettedSubCommand_FieldNumber_OtherValue = 2,
+  ValueSettedSubCommand_FieldNumber_CurrentValue = 3,
+  ValueSettedSubCommand_FieldNumber_VoltageValue = 4,
+  ValueSettedSubCommand_FieldNumber_TemperatureValue = 5,
 };
 
 typedef GPB_ENUM(ValueSettedSubCommand_Values_OneOfCase) {
   ValueSettedSubCommand_Values_OneOfCase_GPBUnsetOneOfCase = 0,
-  ValueSettedSubCommand_Values_OneOfCase_IValue = 2,
-  ValueSettedSubCommand_Values_OneOfCase_FValue = 3,
-  ValueSettedSubCommand_Values_OneOfCase_UiValue = 4,
+  ValueSettedSubCommand_Values_OneOfCase_OtherValue = 2,
+  ValueSettedSubCommand_Values_OneOfCase_CurrentValue = 3,
+  ValueSettedSubCommand_Values_OneOfCase_VoltageValue = 4,
+  ValueSettedSubCommand_Values_OneOfCase_TemperatureValue = 5,
 };
 
 @interface ValueSettedSubCommand : GPBMessage
@@ -46,11 +48,13 @@ typedef GPB_ENUM(ValueSettedSubCommand_Values_OneOfCase) {
 
 @property(nonatomic, readonly) ValueSettedSubCommand_Values_OneOfCase valuesOneOfCase;
 
-@property(nonatomic, readwrite) int32_t iValue;
+@property(nonatomic, readwrite) uint32_t otherValue;
 
-@property(nonatomic, readwrite) float fValue;
+@property(nonatomic, readwrite) uint32_t currentValue;
 
-@property(nonatomic, readwrite) uint32_t uiValue;
+@property(nonatomic, readwrite) uint32_t voltageValue;
+
+@property(nonatomic, readwrite) float temperatureValue;
 
 @end
 
