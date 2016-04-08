@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "proto/SetValueSubCommand.proto";
+import "proto/ValueSettedSubCommand.proto";
+import "proto/GetResourceSubCommand.proto";
+
+message ServerCommandBuff {
+	oneof subCommand {
+		SetValueSubCommand setValueSubCommand = 1;
+		ValueSettedSubCommand valueSettedSubCommand = 2;
+		GetResourceSubCommand getREsourceSubCommand = 3;
+	}
+}

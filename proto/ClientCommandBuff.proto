@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+
+
+message ClientCommandBuff {
+	oneof subCommand {
+		ValueSettedSubCommand valueSettedSubCommand = 1;
+	}
+}
