@@ -144,6 +144,12 @@ class ValueSettedSubCommand : public ::google::protobuf::Message {
   float temperaturevalue() const;
   void set_temperaturevalue(float value);
 
+  // optional uint64 dateSeconds = 6;
+  void clear_dateseconds();
+  static const int kDateSecondsFieldNumber = 6;
+  ::google::protobuf::uint64 dateseconds() const;
+  void set_dateseconds(::google::protobuf::uint64 value);
+
   ValuesCase values_case() const;
   // @@protoc_insertion_point(class_scope:ValueSettedSubCommand)
  private:
@@ -158,6 +164,7 @@ class ValueSettedSubCommand : public ::google::protobuf::Message {
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
+  ::google::protobuf::uint64 dateseconds_;
   ::google::protobuf::uint32 id_;
   union ValuesUnion {
     ValuesUnion() {}
@@ -312,6 +319,20 @@ inline void ValueSettedSubCommand::set_temperaturevalue(float value) {
   }
   values_.temperaturevalue_ = value;
   // @@protoc_insertion_point(field_set:ValueSettedSubCommand.temperatureValue)
+}
+
+// optional uint64 dateSeconds = 6;
+inline void ValueSettedSubCommand::clear_dateseconds() {
+  dateseconds_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ValueSettedSubCommand::dateseconds() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.dateSeconds)
+  return dateseconds_;
+}
+inline void ValueSettedSubCommand::set_dateseconds(::google::protobuf::uint64 value) {
+  
+  dateseconds_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.dateSeconds)
 }
 
 inline bool ValueSettedSubCommand::has_values() const {

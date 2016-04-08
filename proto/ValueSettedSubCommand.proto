@@ -8,4 +8,5 @@ message ValueSettedSubCommand {
 		uint32 voltageValue = 4;
 		float temperatureValue = 5;
 	}
+	uint64 dateSeconds = 6;
 }

@@ -32,6 +32,7 @@ typedef GPB_ENUM(ValueSettedSubCommand_FieldNumber) {
   ValueSettedSubCommand_FieldNumber_CurrentValue = 3,
   ValueSettedSubCommand_FieldNumber_VoltageValue = 4,
   ValueSettedSubCommand_FieldNumber_TemperatureValue = 5,
+  ValueSettedSubCommand_FieldNumber_DateSeconds = 6,
 };
 
 typedef GPB_ENUM(ValueSettedSubCommand_Values_OneOfCase) {
@@ -55,6 +56,8 @@ typedef GPB_ENUM(ValueSettedSubCommand_Values_OneOfCase) {
 @property(nonatomic, readwrite) uint32_t voltageValue;
 
 @property(nonatomic, readwrite) float temperatureValue;
+
+@property(nonatomic, readwrite) uint64_t dateSeconds;
 
 @end
 

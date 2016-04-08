@@ -39,12 +39,13 @@ void protobuf_AssignDesc_proto_2fValueSettedSubCommand_2eproto() {
       "proto/ValueSettedSubCommand.proto");
   GOOGLE_CHECK(file != NULL);
   ValueSettedSubCommand_descriptor_ = file->message_type(0);
-  static const int ValueSettedSubCommand_offsets_[6] = {
+  static const int ValueSettedSubCommand_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ValueSettedSubCommand, id_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, othervalue_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, currentvalue_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, voltagevalue_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(ValueSettedSubCommand_default_oneof_instance_, temperaturevalue_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ValueSettedSubCommand, dateseconds_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ValueSettedSubCommand, values_),
   };
   ValueSettedSubCommand_reflection_ =
@@ -91,11 +92,12 @@ void protobuf_AddDesc_proto_2fValueSettedSubCommand_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n!proto/ValueSettedSubCommand.proto\"\217\001\n\025"
+    "\n!proto/ValueSettedSubCommand.proto\"\244\001\n\025"
     "ValueSettedSubCommand\022\n\n\002id\030\001 \001(\r\022\024\n\noth"
     "erValue\030\002 \001(\rH\000\022\026\n\014currentValue\030\003 \001(\rH\000\022"
     "\026\n\014voltageValue\030\004 \001(\rH\000\022\032\n\020temperatureVa"
-    "lue\030\005 \001(\002H\000B\010\n\006valuesb\006proto3", 189);
+    "lue\030\005 \001(\002H\000\022\023\n\013dateSeconds\030\006 \001(\004B\010\n\006valu"
+    "esb\006proto3", 210);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto/ValueSettedSubCommand.proto", &protobuf_RegisterTypes);
   ValueSettedSubCommand::default_instance_ = new ValueSettedSubCommand();
@@ -129,6 +131,7 @@ const int ValueSettedSubCommand::kOtherValueFieldNumber;
 const int ValueSettedSubCommand::kCurrentValueFieldNumber;
 const int ValueSettedSubCommand::kVoltageValueFieldNumber;
 const int ValueSettedSubCommand::kTemperatureValueFieldNumber;
+const int ValueSettedSubCommand::kDateSecondsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ValueSettedSubCommand::ValueSettedSubCommand()
@@ -157,6 +160,7 @@ void ValueSettedSubCommand::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
   id_ = 0u;
+  dateseconds_ = GOOGLE_ULONGLONG(0);
   clear_has_values();
 }
 
@@ -225,7 +229,19 @@ void ValueSettedSubCommand::clear_values() {
 
 
 void ValueSettedSubCommand::Clear() {
-  id_ = 0u;
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<ValueSettedSubCommand*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(dateseconds_, id_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
   clear_values();
 }
 
@@ -313,6 +329,21 @@ bool ValueSettedSubCommand::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(48)) goto parse_dateSeconds;
+        break;
+      }
+
+      // optional uint64 dateSeconds = 6;
+      case 6: {
+        if (tag == 48) {
+         parse_dateSeconds:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &dateseconds_)));
+
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -366,6 +397,11 @@ void ValueSettedSubCommand::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->temperaturevalue(), output);
   }
 
+  // optional uint64 dateSeconds = 6;
+  if (this->dateseconds() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->dateseconds(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:ValueSettedSubCommand)
 }
 
@@ -397,6 +433,11 @@ void ValueSettedSubCommand::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->temperaturevalue(), target);
   }
 
+  // optional uint64 dateSeconds = 6;
+  if (this->dateseconds() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->dateseconds(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:ValueSettedSubCommand)
   return target;
 }
@@ -409,6 +450,13 @@ int ValueSettedSubCommand::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->id());
+  }
+
+  // optional uint64 dateSeconds = 6;
+  if (this->dateseconds() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->dateseconds());
   }
 
   switch (values_case()) {
@@ -486,6 +534,9 @@ void ValueSettedSubCommand::MergeFrom(const ValueSettedSubCommand& from) {
   if (from.id() != 0) {
     set_id(from.id());
   }
+  if (from.dateseconds() != 0) {
+    set_dateseconds(from.dateseconds());
+  }
 }
 
 void ValueSettedSubCommand::CopyFrom(const ::google::protobuf::Message& from) {
@@ -511,6 +562,7 @@ void ValueSettedSubCommand::Swap(ValueSettedSubCommand* other) {
 }
 void ValueSettedSubCommand::InternalSwap(ValueSettedSubCommand* other) {
   std::swap(id_, other->id_);
+  std::swap(dateseconds_, other->dateseconds_);
   std::swap(values_, other->values_);
   std::swap(_oneof_case_[0], other->_oneof_case_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -656,6 +708,20 @@ void ValueSettedSubCommand::clear_temperaturevalue() {
   }
   values_.temperaturevalue_ = value;
   // @@protoc_insertion_point(field_set:ValueSettedSubCommand.temperatureValue)
+}
+
+// optional uint64 dateSeconds = 6;
+void ValueSettedSubCommand::clear_dateseconds() {
+  dateseconds_ = GOOGLE_ULONGLONG(0);
+}
+ ::google::protobuf::uint64 ValueSettedSubCommand::dateseconds() const {
+  // @@protoc_insertion_point(field_get:ValueSettedSubCommand.dateSeconds)
+  return dateseconds_;
+}
+ void ValueSettedSubCommand::set_dateseconds(::google::protobuf::uint64 value) {
+  
+  dateseconds_ = value;
+  // @@protoc_insertion_point(field_set:ValueSettedSubCommand.dateSeconds)
 }
 
 bool ValueSettedSubCommand::has_values() const {

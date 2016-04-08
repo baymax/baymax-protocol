@@ -35,6 +35,7 @@ static GPBFileDescriptor *ValueSettedSubCommandRoot_FileDescriptor(void) {
 @dynamic currentValue;
 @dynamic voltageValue;
 @dynamic temperatureValue;
+@dynamic dateSeconds;
 
 typedef struct ValueSettedSubCommand__storage_ {
   uint32_t _has_storage_[2];
@@ -43,6 +44,7 @@ typedef struct ValueSettedSubCommand__storage_ {
   uint32_t currentValue;
   uint32_t voltageValue;
   float temperatureValue;
+  uint64_t dateSeconds;
 } ValueSettedSubCommand__storage_;
 
 // This method is threadsafe because it is initially called
@@ -112,11 +114,22 @@ typedef struct ValueSettedSubCommand__storage_ {
         .dataTypeSpecific.className = NULL,
         .fieldOptions = NULL,
       },
+      {
+        .name = "dateSeconds",
+        .number = ValueSettedSubCommand_FieldNumber_DateSeconds,
+        .hasIndex = 5,
+        .flags = GPBFieldOptional | GPBFieldTextFormatNameCustom,
+        .dataType = GPBDataTypeUInt64,
+        .offset = offsetof(ValueSettedSubCommand__storage_, dateSeconds),
+        .defaultValue.valueUInt64 = 0ULL,
+        .dataTypeSpecific.className = NULL,
+        .fieldOptions = NULL,
+      },
     };
 #if GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     const char *extraTextFormatInfo = NULL;
 #else
-    static const char *extraTextFormatInfo = "\004\002\n\000\003\014\000\004\014\000\005\020\000";
+    static const char *extraTextFormatInfo = "\005\002\n\000\003\014\000\004\014\000\005\020\000\006\013\000";
 #endif  // GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[ValueSettedSubCommand class]
